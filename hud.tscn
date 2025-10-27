@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://uwoxuxtadhns"]
+[gd_scene load_steps=5 format=3 uid="uid://uwoxuxtadhns"]
 
 [ext_resource type="FontFile" uid="uid://bl4b48daqstwx" path="res://fonts/Xolonium-Regular.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://duvwonvby7ylr" path="res://hud.gd" id="1_64ctp"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_64ctp"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_8sq4i"]
+events = [SubResource("InputEventKey_64ctp")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
@@ -50,6 +57,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_8sq4i")
 text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]

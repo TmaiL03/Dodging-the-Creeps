@@ -10,6 +10,8 @@ var score
 @onready var mob_path: Path2D = $MobPath
 @onready var mob_spawn_location: PathFollow2D = $MobPath/MobSpawnLocation
 @onready var hud: CanvasLayer = $HUD
+@onready var music: AudioStreamPlayer = $Music
+@onready var death_sound: AudioStreamPlayer = $DeathSound
 
 func _ready():
 	pass
@@ -17,6 +19,8 @@ func _ready():
 func game_over() -> void:
 	score_timer.stop()
 	mob_timer.stop()
+	music.stop()
+	death_sound.play()
 	
 	hud.show_game_over()
 	
@@ -24,6 +28,7 @@ func new_game() -> void:
 	score = 0
 	player.start(start_position.position)
 	start_timer.start()
+	music.play()
 	
 	get_tree().call_group("mobs", "queue_free")
 	
